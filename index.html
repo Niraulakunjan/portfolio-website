@@ -495,7 +495,7 @@
                  <!--===== Contact Form =====-->
               <div class="row">
                   <div class="contact-form">
-                        <form id="contactForm" action="https://formsubmit.co/niraula76kunjan@gmail.com" method="POST">
+                     <form id="contactForm" action="https://formsubmit.co/niraula76kunjan@gmail.com" method="POST">
     <div class="row">
         <div class="w-50">
             <div class="input-group">
@@ -539,6 +539,10 @@
         .then(response => {
             if (response.ok) {
                 console.log('Form submitted successfully!');
+                
+                // Clear all input fields
+                const inputFields = this.querySelectorAll('input, textarea');
+                inputFields.forEach(field => field.value = '');
 
                 // Set a 15-second delay before reloading the page
                 setTimeout(function() {
@@ -553,6 +557,7 @@
         });
     });
 </script>
+
 
 
                   </div>
