@@ -495,7 +495,7 @@
                  <!--===== Contact Form =====-->
               <div class="row">
                   <div class="contact-form">
-                          <form action="https://formsubmit.co/niraula76kunjan@gmail.com" method="POST" onsubmit="reloadAfterDelay(event)">
+                        <form id="contactForm" action="https://formsubmit.co/niraula76kunjan@gmail.com" method="POST">
     <div class="row">
         <div class="w-50">
             <div class="input-group">
@@ -525,13 +525,35 @@
 </form>
 
 <script>
-    function reloadAfterDelay(event) {
-        // Prevent the form from reloading the page immediately
-        setTimeout(function() {
-            location.reload();  // Reload the page after 15 seconds
-        }, 15000); // 15000 milliseconds = 15 seconds
-    }
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Collect form data
+        const formData = new FormData(this);
+
+        // Send the form data using fetch
+        fetch(this.action, {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Form submitted successfully!');
+
+                // Set a 15-second delay before reloading the page
+                setTimeout(function() {
+                    location.reload();
+                }, 15000);
+            } else {
+                console.error('Error submitting the form:', response.statusText);
+            }
+        })
+        .catch(error => {
+            console.error('Network error:', error);
+        });
+    });
 </script>
+
 
                   </div>
               </div>
