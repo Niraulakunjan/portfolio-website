@@ -495,32 +495,36 @@
                  <!--===== Contact Form =====-->
               <div class="row">
                   <div class="contact-form">
-                      <form action="">
+                          <form  action="https://formsubmit.co/niraula76kunjan@gmail.com" method="POST"> 
                           <div class="row">
                               <div class="w-50">
                                   <div class="input-group">
-                                      <input type="text" placeholder="Name" class="input-control">
+                                      <input type="text" name="name" placeholder="Name" class="input-control">
                                   </div>
                                   <div class="input-group">
-                                    <input type="email" placeholder="Email" class="input-control">
+                                    <input type="email" name= "email" placeholder="Email" class="input-control">
                                 </div>
                                 <div class="input-group">
-                                    <input type="text" placeholder="Subject" class="input-control">
+                                    <input type="text" name="subject" placeholder="Subject" class="input-control">
                                 </div>
                               </div>
                               <div class="w-50">
                                   <div class="input-group">
-                                      <textarea name="" class="input-control" placeholder="Message" id="" cols="30" rows="10"></textarea>
+                                      <textarea  class="input-control" name="message" placeholder="Message" id="" cols="30" rows="10"></textarea>
                                   </div>
                               </div>
                           </div>
                           <div class="row">
                               <div class="submit-btn">
-                                  
+                                <input type="hidden" name="_captcha" value="false">
+                                <input type="hidden" name="_template" value="table">
+                                <!-- <input type="hidden" name="_next" value="https://niraulakunjan.com.np">-->
+
+
                                   <button type="submit" class="btn-1">Send Message</button>
                               </div>
                           </div>
-                      </form>
+                    </form>
                   </div>
               </div>
            </div>
