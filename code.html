@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Django Setup Guide</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .copy-btn:hover {
+      background-color: #4f46e5;
+      color: white;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div class="max-w-3xl mx-auto py-12 px-6">
+    <h1 class="text-4xl font-bold text-center mb-10 text-indigo-600">Django Setup Documentation</h1>
+
+    <!-- Virtual Environment -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">1. Create Virtual Environment</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code1">python -m venv env</pre>
+        <button onclick="copyToClipboard('code1')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Activate Virtual Environment -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">2. Activate Virtual Environment</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+      # Windows  <pre id="code2">
+env\Scripts\activate
+
+</pre>
+        <button onclick="copyToClipboard('code2')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Install Django -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">3. Install Django</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code3">pip install django</pre>
+        <button onclick="copyToClipboard('code3')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Create Project -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">4. Create Project</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code4">django-admin startproject myproject</pre>
+        <button onclick="copyToClipboard('code4')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Run Server -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">5. Run Development Server</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code5">cd myproject
+python manage.py runserver</pre>
+        <button onclick="copyToClipboard('code5')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Create App -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">6. Create an App</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code6">python manage.py startapp myapp</pre>
+        <button onclick="copyToClipboard('code6')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Register App -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">7. Register App in Settings</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code7">
+# In myproject/settings.py
+INSTALLED_APPS = [
+    ...
+    'myapp',
+]
+        </pre>
+        <button onclick="copyToClipboard('code7')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Make Migrations -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">8. Run Migrations</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code8">python manage.py makemigrations
+python manage.py migrate</pre>
+        <button onclick="copyToClipboard('code8')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Create View -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">9. Create a View</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code9">
+# In myapp/views.py
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Hello, Django!")
+        </pre>
+        <button onclick="copyToClipboard('code9')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Add URL -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">10. Add App URL</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code10">
+# In myapp/urls.py
+from django.urls import path
+from .views import home
+
+urlpatterns = [
+    path('', home, name='home'),
+]
+        </pre>
+        <button onclick="copyToClipboard('code10')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Include App URLs -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold mb-2">11. Include App URLs in Project</h2>
+      <div class="relative bg-gray-100 p-4 rounded">
+        <pre id="code11">
+# In myproject/urls.py
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls')),
+]
+        </pre>
+        <button onclick="copyToClipboard('code11')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+      </div>
+    </section>
+
+    <!-- Templates Directory -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">12. Create and Use Templates</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code12">
+# Folder structure:
+myapp/
+└── templates/
+    └── myapp/
+        └── home.html
+
+# In myapp/views.py
+from django.shortcuts import render
+
+def home(request):
+    return render(request, 'myapp/home.html')
+    </pre>
+    <button onclick="copyToClipboard('code12')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+<!-- Settings for Templates -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">13. Settings for Templates</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code13">
+# In myproject/settings.py, ensure this line is in TEMPLATES:
+'DIRS': [BASE_DIR / "templates"],
+    </pre>
+    <button onclick="copyToClipboard('code13')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+<!-- Static Files -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">14. Using Static Files</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code14">
+# Folder structure:
+myapp/
+└── static/
+    └── myapp/
+        └── style.css
+
+# In home.html (template)
+{% raw %}
+{% load static %}
+&lt;link rel="stylesheet" href="{% static 'myapp/style.css' %}"&gt;
+{% endraw %}
+    </pre>
+    <button onclick="copyToClipboard('code14')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+<!-- Settings for Static Files -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">15. Settings for Static Files</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code15">
+# In myproject/settings.py
+STATIC_URL = 'static/'
+
+# Add this if you use global static folders:
+STATICFILES_DIRS = [BASE_DIR / "static"]
+    </pre>
+    <button onclick="copyToClipboard('code15')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+<!-- Static Folder Structure -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">17. Static Folder Structure</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code17">
+# Recommended structure inside your Django app (e.g., 'myapp'):
+
+myapp/
+├── static/
+│   └── myapp/
+│       ├── style.css
+│       ├── script.js
+│       └── logo.png
+
+# You can reference files like this in templates:
+{% raw %}
+<link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+{% endraw %}
+    </pre>
+    <button onclick="copyToClipboard('code17')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+
+<!-- Add Static Files in HTML Template -->
+<section class="mb-8">
+  <h2 class="text-2xl font-semibold mb-2">16. Add Static Files in HTML Template</h2>
+  <div class="relative bg-gray-100 p-4 rounded">
+    <pre id="code16">
+&lt;!-- At the top of your HTML template --&gt;
+{% raw %}
+{% load static %}
+{% endraw %}
+
+&lt;!-- Use static files like this --&gt;
+&lt;link rel="stylesheet" href="{% static 'myapp/style.css' %}"&gt;
+&lt;script src="{% static 'myapp/script.js' %}"&gt;&lt;/script&gt;
+&lt;img src="{% static 'myapp/logo.png' %}" alt="Logo"&gt;
+    </pre>
+    <button onclick="copyToClipboard('code16')" class="copy-btn absolute top-2 right-2 bg-indigo-100 px-2 py-1 text-sm rounded">Copy</button>
+  </div>
+</section>
+
+
+
+    <p class="text-center text-sm text-gray-500 mt-12">© 2025 Kunjan Niraula</p>
+  </div>
+
+  <script>
+    function copyToClipboard(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
